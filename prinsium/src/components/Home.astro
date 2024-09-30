@@ -1,0 +1,38 @@
+<div class="flex flex-row gap-4">
+    <div>
+        <h3>contact</h3>
+    </div>
+    <div class="w-full logocontainer">
+        <div class="scrolling">
+          <img src="/footlogo.svg" class="w-max" alt="PRINSIUM" />
+        </div>
+        <div class="scrolling" aria-hidden="true">
+          <img src="/footlogo.svg" class="w-max" alt="PRINSIUM" />
+        </div>
+        <div class="scrolling" aria-hidden="true">
+          <img src="/footlogo.svg" class="w-max" alt="PRINSIUM" />
+        </div>
+      </div>
+</div>
+
+
+<style>
+.logocontainer {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scrolling {
+  animation: marquee 30s linear infinite;
+  display: inline-block;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to { 
+    transform: translateX(-100%);
+  }
+}
+</style>

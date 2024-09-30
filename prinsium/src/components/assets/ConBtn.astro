@@ -1,0 +1,132 @@
+<div class="flex items-end group">
+
+    <div class="btnclass flex flex-row gap-2 bg-[#f4f4f4] group overflow-hidden">
+
+     <div class="marquee group">   
+
+        <div class="flex flex-col marquee-content-up">
+            <h3 class="contactbtn">C</h3>
+            <h3 class="contactbtn">C</h3>
+            <h3 class="contactbtn">C</h3>
+        </div>
+    
+        <div class="flex flex-col marquee-content-down">
+            <h3 class="contactbtn">O</h3>
+            <h3 class="contactbtn">O</h3>
+            <h3 class="contactbtn">O</h3>
+        </div>
+    
+        <div class="flex flex-col marquee-content-up">
+            <h3 class="contactbtn">N</h3>
+            <h3 class="contactbtn">N</h3>
+            <h3 class="contactbtn">N</h3>
+        </div>
+    
+        <div class="flex flex-col marquee-content-down">
+            <h3 class="contactbtn">T</h3>
+            <h3 class="contactbtn">T</h3>
+            <h3 class="contactbtn">T</h3>
+        </div>
+    
+        <div class="flex flex-col marquee-content-up">
+            <h3 class="contactbtn">A</h3>
+            <h3 class="contactbtn">A</h3>
+            <h3 class="contactbtn">A</h3>
+        </div>
+    
+        <div class="flex flex-col marquee-content-down">
+            <h3 class="contactbtn">C</h3>
+            <h3 class="contactbtn">C</h3>
+            <h3 class="contactbtn">C</h3>
+        </div>
+    
+        <div class="flex flex-col marquee-content-up">
+            <h3 class="contactbtn">T</h3>
+            <h3 class="contactbtn">T</h3>
+            <h3 class="contactbtn">T</h3>
+        </div>
+
+    </div>
+    </div>
+    </div>
+    
+    <!-- <style>
+    
+      .contactbtn {
+            font-family: "Chakra Petch", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-size: 4rem;
+            font-style: normal;
+            line-height: 100%;
+            color: #121212;
+        }
+    
+      .btnclass {
+      position: relative;
+      clip-path: polygon(0 0, 100% 0, 100% 80%, 97% 80%, 97% 100%, 0 100%);
+      overflow: clip;
+      height: calc(line-height);
+      }
+    
+    </style> -->
+    
+    <style>
+        :root {
+          --font-size: 4.7vw;
+          --extra-height: 0px;
+          --btn-height: calc(var(--font-size) + var(--extra-height));
+        }
+
+        @media screen and (max-width: 600px) {
+          :root {
+          --font-size: 2.5rem;
+          --extra-height: 0px;
+          --btn-height: calc(var(--font-size) + var(--extra-height));
+        }
+	      }
+      
+        .contactbtn {
+          font-family: "Chakra Petch", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: 600;
+          font-size: var(--font-size);
+          font-style: normal;
+          line-height: 100%;
+          color: #121212;
+        }
+      
+        .btnclass {
+          position: relative;
+          /* clip-path: polygon(0 0, 100% 0, 100% 80%, 97% 80%, 97% 100%, 0 100%);
+          overflow: clip; */
+          height: var(--btn-height);
+          padding: 0 2.5px 0 2.5px;
+        }
+
+        .marquee {
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .marquee-content-up {
+    display: flex;
+    transform: translateY(0);
+    transition: transform 1s ease;
+  }
+
+  .marquee-content-down {
+    display: flex;
+    transform: translateY(-100%);
+    transition: transform 1s ease;
+  }
+
+  .marquee:hover .marquee-content-up {
+    transform: translateY(-100%);
+  }
+
+  .marquee:hover .marquee-content-down {
+    transform: translateY(0%);
+  }
+</style>

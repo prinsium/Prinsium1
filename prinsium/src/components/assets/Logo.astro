@@ -1,0 +1,115 @@
+<div class="logodiv flex w-full flex-row">
+    <div class="overflow-hidden marquee gap-2 md:gap-3">
+
+  <div class="flex gap-2 md:gap-3 flex-col marquee-content-up">
+    <img src="/prinsium/p.svg" class="svg-element" alt="P" />
+    <img src="/prinsium/p.svg" class="svg-element" alt="P" />
+    <img src="/prinsium/p.svg" class="svg-element" alt="P" />
+  </div>
+
+  <div class="flex gap-2 md:gap-3 flex-col marquee-content-down">
+    <img src="/prinsium/r.svg" class="svg-element" alt="R" />
+    <img src="/prinsium/r.svg" class="svg-element" alt="R" />
+    <img src="/prinsium/r.svg" class="svg-element" alt="R" />
+  </div>
+
+  <div class="flex gap-2 md:gap-3 flex-col marquee-content-up">
+    <img src="/prinsium/i.svg" class="svg-element" alt="I" />
+    <img src="/prinsium/i.svg" class="svg-element" alt="I" />
+    <img src="/prinsium/i.svg" class="svg-element" alt="I" />
+  </div>
+
+  <div class="flex gap-2 md:gap-3 flex-col marquee-content-down">
+    <img src="/prinsium/n.svg" class="svg-element" alt="N" />
+    <img src="/prinsium/n.svg" class="svg-element" alt="N" />
+    <img src="/prinsium/n.svg" class="svg-element" alt="N" />
+  </div>
+
+  <div class="flex gap-2 md:gap-3 flex-col marquee-content-up">
+    <img src="/prinsium/s.svg" class="svg-element" alt="S" />
+    <img src="/prinsium/s.svg" class="svg-element" alt="S" />
+    <img src="/prinsium/s.svg" class="svg-element" alt="S" />
+  </div>
+
+  <div class="flex gap-2 md:gap-3 flex-col marquee-content-down">
+    <img src="/prinsium/i.svg" class="svg-element" alt="I" />
+    <img src="/prinsium/i.svg" class="svg-element" alt="I" />
+    <img src="/prinsium/i.svg" class="svg-element" alt="I" />
+  </div>
+
+  <div class="flex gap-2 md:gap-3 flex-col marquee-content-up">
+    <img src="/prinsium/u.svg" class="svg-element" alt="U" />
+    <img src="/prinsium/u.svg" class="svg-element" alt="U" />
+    <img src="/prinsium/u.svg" class="svg-element" alt="U" />
+  </div>
+
+  <div class="flex gap-2 md:gap-3 flex-col marquee-content-down">
+    <img src="/prinsium/m.svg" class="svg-element" alt="M" />
+    <img src="/prinsium/m.svg" class="svg-element" alt="M" />
+    <img src="/prinsium/m.svg" class="svg-element" alt="M" />
+  </div>
+
+</div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const svgElement = document.querySelector('.svg-element');
+    const logodiv = document.querySelector('.logodiv');
+
+    if (svgElement && logodiv) {
+        const svgHeight = svgElement.getBoundingClientRect().height;
+        logodiv.style.height = `${svgHeight}px`;
+    }
+});
+</script>
+
+
+<style>
+
+
+    .marquee {
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .marquee-content-up {
+    display: flex;
+    animation: scroll-one 8s ease-in-out infinite;
+  }
+
+  .marquee-content-down {
+    display: flex;
+    animation: scroll-two 8s ease-in-out infinite;
+  }
+
+  @keyframes scroll-one {
+  0% {
+    transform: translateY(0);
+  }
+  65% {
+    transform: translateY(-105%);
+  }
+  100% {
+    transform: translateY(-105%);
+  }
+}
+
+@keyframes scroll-two {
+  0% {
+    transform: translateY(-105%);
+  }
+  65% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+  .marquee-content > .flex-row {
+    display: flex;
+  }
+</style>
+
