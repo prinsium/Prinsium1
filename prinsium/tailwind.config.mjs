@@ -4,10 +4,11 @@ export default {
 	theme: {
 		extend: {
 			animation: {
-				marquee: "marquee 25s linear infinite",
+				marqueeOne: "marqueeOne 25s linear infinite",
+				marqueeTwo: "marqueeTwo 25s linear infinite",
 			  },
 			  keyframes: {
-				marquee: {
+				marqueeOne: {
 				  from: {
 					transform: 'translateX(0)',
 				  },
@@ -15,6 +16,14 @@ export default {
 					transform: 'translateX(calc(-100% - 2.5rem))',
 				  },
 				},
+				marqueeTwo: {
+					from: {
+					  transform: 'translateX(calc(-100% - 2.5rem))',
+					},
+					to: {
+					  transform: 'translateX(0)',
+					},
+				  },
 			  },
 		},
 	},

@@ -1,7 +1,11 @@
+---
+import { workData } from "../Projects/Work"
+---
+
 <div class="flex flex-col">
     <div>
         <div class="overflow-hidden border-gray-200 border-2 py-3">
-            <div class="flex flex-row animate-marquee gap-4 whitespace-nowrap">
+            <div class="flex flex-row animate-marqueeOne gap-4 whitespace-nowrap">
             <h3>WORK * WORK * WORK * WORK *</h3>
             <h3>WORK * WORK * WORK * WORK *</h3>
             <h3>WORK * WORK * WORK * WORK *</h3>
@@ -9,27 +13,76 @@
         </div>
     </div>
 
-    <div class="flex flex-col-reverse md:flex-row justify-between border-x-2 border-gray-200">
-
-        <div class="flex flex-col gap-4">
-            <h3>AKSH Foundation</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nulla explicabo et, modi, incidunt sapiente quam labore mollitia voluptas placeat porro repellat fuga.</p>
+     <!-- Image sliding list container -->
+    <div class="overflow-hidden w-full border-x-2 border-gray-200 p-2 md:p-4 lg:p-8">
+        <div id="slider" class="flex overflow-x-auto scroll-smooth space-x-4 scrollbar-hide">
+            {workData.map((work, index) => (
+                <div key={work.id} class="flex-shrink-0 border-2 border-gray-200 w-[300px] h-[400px] lg:w-[300px] lg:h-[400px]">
+                    <img src={work.url} class="hover:scale-105 object-contain" alt="img" />
+                </div>
+            ))}
         </div>
-    
-        <div>
-            <img src="/scrren.png" class="hover:scale-95" alt="img">
-        </div>
-    
     </div>
     
-    <div class="flex flex-row justify-between">
-        <div class="border-2 border-gray-200 w-fit">
-            <img src="/arrow.svg" class="size-[3rem] rotate-180 m-3" alt="*" />
+    <div class="border-gray-200 border-2 flex flex-row justify-between items-center p-0">
+
+        <div class="overflow-hidden py-3">
+            <div class="flex flex-row animate-marqueeTwo gap-4 whitespace-nowrap">
+            <h3>WORK * WORK * WORK * WORK *</h3>
+            <h3>WORK * WORK * WORK * WORK *</h3>
+            <h3>WORK * WORK * WORK * WORK *</h3>
+            </div>
         </div>
-        <div class="w-full border-y-2 border-gray-200"></div>
-        <div class="border-2 border-gray-200 w-fit">
-            <img src="/arrow.svg" class="size-[3rem] m-3" alt="*" />
+
+        <div class="flex flex-row">
+            <div id="prevArrow" class="w-fit h-fit border-l-2 border-gray-200 ">
+                <img src="/arrow.svg" class="object-contain rotate-180 p-3" alt="*" />
+            </div>
+            <div id="nextArrow" class="w-fit h-fit border-l-2 border-gray-200 cussor-pointer">
+                <img src="/arrow.svg" class="object-contain p-3" alt="*" />
+            </div>
         </div>
     </div>
 
 </div>
+
+<script>
+    const slider = document.getElementById('slider');
+    const prevArrow = document.getElementById('prevArrow');
+    const nextArrow = document.getElementById('nextArrow');
+    let currentIndex = 0;
+  
+    const scrollToIndex = (index) => {
+      const sliderItems = slider.children;
+      if (index >= 0 && index < sliderItems.length) {
+        const scrollAmount = sliderItems[index].offsetLeft;
+        slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+      }
+    };
+  
+    prevArrow.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        scrollToIndex(currentIndex);
+      }
+    });
+  
+    nextArrow.addEventListener('click', () => {
+      if (currentIndex < slider.children.length - 1) {
+        currentIndex++;
+        scrollToIndex(currentIndex);
+      }
+    });
+  </script>
+
+<style>
+    .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, and Opera */
+}
+
+</style>

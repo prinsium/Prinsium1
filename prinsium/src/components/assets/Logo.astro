@@ -53,16 +53,19 @@
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const svgElement = document.querySelector('.svg-element');
-    const logodiv = document.querySelector('.logodiv');
-
-    if (svgElement && logodiv) {
-        const svgHeight = svgElement.getBoundingClientRect().height;
-        logodiv.style.height = `${svgHeight}px`;
-    }
-});
+  document.addEventListener("DOMContentLoaded", function () {
+      const logodivs = document.querySelectorAll('.logodiv'); // Get all instances of logodiv
+      logodivs.forEach(logodiv => {
+          const svgElement = logodiv.querySelector('.svg-element'); // Get the SVG element within each logodiv
+  
+          if (svgElement && logodiv) {
+              const svgHeight = svgElement.getBoundingClientRect().height;
+              logodiv.style.height = `${svgHeight}px`;
+          }
+      });
+  });
 </script>
+  
 
 
 <style>
@@ -89,16 +92,16 @@ document.addEventListener("DOMContentLoaded", function () {
     transform: translateY(0);
   }
   65% {
-    transform: translateY(-105%);
+    transform: translateY(calc(-100% - 12px));
   }
   100% {
-    transform: translateY(-105%);
+    transform: translateY(calc(-100% - 12px));
   }
 }
 
 @keyframes scroll-two {
   0% {
-    transform: translateY(-105%);
+    transform: translateY(calc(-100% - 12px));
   }
   65% {
     transform: translateY(0);
@@ -111,5 +114,31 @@ document.addEventListener("DOMContentLoaded", function () {
   .marquee-content > .flex-row {
     display: flex;
   }
+
+  @media (max-width: 760px) {
+    @keyframes scroll-one {
+  0% {
+    transform: translateY(0);
+  }
+  65% {
+    transform: translateY(calc(-100% - 8px));
+  }
+  100% {
+    transform: translateY(calc(-100% - 8px));
+  }
+}
+  @keyframes scroll-two {
+    0% {
+      transform: translateY(calc(-100% - 8px)); /* Use 8px for smaller screens */
+    }
+    65% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
+
 </style>
 

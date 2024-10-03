@@ -1,38 +1,65 @@
-<div class="flex flex-row gap-4">
-    <div>
-        <h3>contact</h3>
-    </div>
-    <div class="w-full logocontainer">
-        <div class="scrolling">
-          <img src="/footlogo.svg" class="w-max" alt="PRINSIUM" />
-        </div>
-        <div class="scrolling" aria-hidden="true">
-          <img src="/footlogo.svg" class="w-max" alt="PRINSIUM" />
-        </div>
-        <div class="scrolling" aria-hidden="true">
-          <img src="/footlogo.svg" class="w-max" alt="PRINSIUM" />
-        </div>
-      </div>
+---
+import Logo from "./assets/Logo.astro";
+import ConBtn from "./assets/ConBtn.astro";
+import About from "./About.astro";
+---
+
+<div class="h-[100vh] md:h-[110vh] flex flex-col justify-between">
+
+  <div class="flex flex-col md:flex-row gap-4">
+    <h3 class="whitespace-nowrap">This is,</h3>
+    <Logo />
+  </div>
+
+
+<div class="h-full flex justify-center">
+  <div class="flex justify-center"><ConBtn /></div>
 </div>
 
+<!-- <div class="flex flex-row w-full h-full justify-between items-end">
+  <div class="flex flex-col justify-end items-start">
+    <h3>CREATIVE</h3>
+    <h3>FRONT END</h3>
+    <h3>WEB DEVELOPER</h3>
+  </div>
+
+  <div class="w-fit h-fit p-6 md:p-12 border-2 border-gray-200 rounded-full">
+    <img
+      src="/arrow.svg"
+      class="rotate-90 w-[1.5rem] h-[1.5rem] md:w-[3rem] md:h-[3rem]"
+      alt="*"
+    />
+  </div>
+</div> -->
+
+<div class="h-[50vh] flex flex flex-col justify-center">
+  <div class="w-full flex justify-center items-center">
+    <div class="w-fit h-fit p-12 border-2 border-gray-200 rounded-full">
+      <img src="/arrow1.svg" class="rotate-90 size-[3rem]" alt="*" />
+    </div>
+  </div>
+  <About />
+</div>
+
+</div>
 
 <style>
-.logocontainer {
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.scrolling {
-  animation: marquee 30s linear infinite;
-  display: inline-block;
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(0);
+  .logocontainer {
+    overflow: hidden;
+    white-space: nowrap;
   }
-  to { 
-    transform: translateX(-100%);
+
+  .scrolling {
+    animation: marquee 30s linear infinite;
+    display: inline-block;
   }
-}
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
 </style>
