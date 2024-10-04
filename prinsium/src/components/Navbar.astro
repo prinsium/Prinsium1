@@ -1,5 +1,93 @@
-<div class="absolute z-20 top-4 right-4 fixed">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="#F5F5F7" class="size-8">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
-      </svg>      
+<div class="fixed z-40 top-2 right-2 left-2 items-end bg-red-600 max-w-sm flex flex-col" id="navbar">
+  <div class="flex flex-row justify-center items-center gap-4 p-3">
+    <div>
+      <img src="/footlogo.svg" class="w-full h-full" alt="PRINSIUM">
+    </div>
+    <div class="flex flex-col size-[3rem] justify-evenly items-end cursor-pointer">
+      <div class="line1 w-[3rem] h-[2px] bg-slate-50 transition-all duration-300"></div>
+      <div class="line2 w-[3rem] h-[2px] bg-slate-50 transition-all duration-300"></div>
+    </div>
+
+  </div>
+  <div class="w-full mt-[10vh]" id="modal">
+    <div class="w-full">
+      <ul>
+        <div class="w-full h-1px border-t-2 border-gray-200 border-dotted"></div>
+        <li class="text-2xl text-white flex justify-between items-center w-full">Home
+          <span class="inline-block">
+            <img src="/arrow1.svg" class="size-[1.5rem]" alt="-->">
+          </span>
+        </li>
+        <div class="w-full h-1px border-t-2 border-gray-200 border-dotted"></div>
+        <li class="text-2xl text-white flex justify-between items-center w-full">Work
+          <span class="inline-block">
+            <img src="/arrow1.svg" class="size-[1.5rem]" alt="-->">
+          </span>
+        </li>
+        <div class="w-full h-1px border-t-2 border-gray-200 border-dotted"></div>
+        <li class="text-2xl text-white flex justify-between items-center w-full">Services
+          <span class="inline-block">
+            <img src="/arrow1.svg" class="size-[1.5rem]" alt="-->">
+          </span>
+        </li>
+        <div class="w-full h-1px border-t-2 border-gray-200 border-dotted"></div>
+        <li class="text-2xl text-white flex justify-between items-center w-full">Contact
+          <span class="inline-block">
+            <img src="/arrow1.svg" class="size-[1.5rem]" alt="-->">
+          </span>
+        </li>
+        <div class="w-full h-1px border-t-2 border-gray-200 border-dotted"></div>
+      </ul>
+    </div>
+  </div>
+
 </div>
+
+
+
+<style>
+  /* Hover effect for cross animation */
+  .navbar-open .line1 {
+    transform: rotate(-45deg) translateY(10px);
+  }
+
+  .navbar-open .line2 {
+    transform: rotate(45deg) translateY(-10px);
+  }
+
+  /* Modal sliding effect */
+  #modal.active {
+    display: flex;
+    transform: translateY(0); /* Slide the modal into view */
+  }
+
+  #modal {
+    display: none;
+  }
+</style>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const modal = document.getElementById('modal');
+  let isModalOpen = false;
+
+  // Toggle modal visibility and cross animation
+  navbar.addEventListener('click', () => {
+    isModalOpen = !isModalOpen;
+
+    // Toggle cross animation on navbar
+    navbar.classList.toggle('navbar-open');
+
+    // Toggle modal visibility
+    if (isModalOpen) {
+      modal.classList.add('active');
+      modal.style.display = 'flex';  // Show the modal
+    } else {
+      modal.classList.remove('active');
+      setTimeout(() => {
+        modal.style.display = 'none'; // Hide the modal after the animation completes
+      }, 500); // Match the duration of the sliding effect
+    }
+  });
+</script>
+
