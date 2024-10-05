@@ -1,8 +1,12 @@
+---
+import ConBtn from "./assets/ConBtn.astro";
+---
+
 <div>
-  <div class="flex w-full justify-center">
-    <div class="relative flex w-fit h-fit justify-center items-center group">
+  <div class="flex w-full justify-between items-center flex-col-reverse gap-8 lg:flex-row mt-[10vh] ">
+    <div class="relative flex w-fit h-fit justify-center items-center group md:mt-[10vh] lg:mt-0 lg:-translate-x-12">
       <div
-        class="transition-all duration-1000 sticky border-2 border-red-600 group-hover:animate-shrinkToNormal group-hover:border-0 size-[16rem] lg:size-[20vw] rounded-full z-10 arrowbg"
+        class="transition-all duration-1000 sticky border-2 border-red-600 group-hover:animate-shrinkToNormal group-hover:border-0 size-[8rem] md:size-[16rem] lg:size-[20vw] rounded-full z-10 arrowbg"
       >
       </div>
 
@@ -25,9 +29,14 @@
         </div>
       </div>
     </div>
+
+    <div>
+      <h6 class="hidden lg:block">Let's</h6>
+      <ConBtn />
+    </div>
   </div>
 
-  <div class="flex justify-start items-center h-[20vh] translate-y-[-50%]">
+  <div class="flex justify-start items-center lg:mt-[10vh] mb-[30vh] h-[20vh] ">
     <div class="relative group">
       <div>
         <div
