@@ -28,20 +28,42 @@ import { gigData } from "../Projects/Gig";
 
     <!-- Here are the services -->
 
-    <div class="flex flex-col border-x-2 border-gray-200 py-2 service-gigs">
+    <!-- <div class="flex flex-col border-x-2 border-gray-200 py-2 service-gigs">
         {gigData.map((gigs, index) => (
             <div key={gigs.id} class="relative group">
                 <h3>{gigs.gig}</h3>
                 {/* <img src={gigs.gigImage} class="group-hover:flex absolute w-[300px] h-[400px] z-20" alt="img" /> */}
-                <div class="absolute -z-10 group-hover:z-30 h-full w-[90vw] flex justify-end items-end hidden group-hover:block">
+                {/* <div class="absolute -z-10 group-hover:z-30 h-full w-[100vw] flex justify-end items-end hidden group-hover:block">
             <div class="h-[400px] w-[300px] right-0 top-0 z-50 flex justify-center items-center">
             <img src={gigs.gigImage} class="-translate-y-1/2 object-contain" alt="img" />
     </div>
-        </div>
+        </div> */}
+        <div class="absolute right-0 top-0 h-full w-full flex justify-end items-start opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="h-[400px] w-[300px] flex justify-center items-center">
+                    <img src={gigs.gigImage} class="object-contain" alt="img" />
+                </div>
+            </div>
             </div>
         ))}
         
+    </div> -->
+
+        <div class="flex flex-col border-x-2 border-gray-200 py-2 service-gigs">
+        {gigData.map((gigs, index) => (
+            <div key={gigs.id} class="relative group">
+            <h3>{gigs.gig}</h3>
+            <div class="hidden group-hover:z-30 group-hover:block right-[10vw] top-0 -translate-y-1/2 absolute w-96 h-96 bg-red-500">
+                <img src={gigs.gigImage} class="object-contain" alt="img" /></div>
+        </div>
+        ))}
+        
     </div>
+
+        <!-- <div key={gigs.id} class="relative group">
+            <h3 class="group-hover:bg-blue-400">{gigs.gig}</h3>
+            <div class="hidden group-hover:block right-[10vw] top-0 -translate-y-1/2 absolute w-96 h-96 bg-red-500">
+                <img src={gigs.gigImage} class="object-contain" alt="img" /></div>
+        </div> -->
 
     <!-- Here are the services -->
 
