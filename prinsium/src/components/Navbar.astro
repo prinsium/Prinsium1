@@ -13,29 +13,29 @@ import ConBtn from "./assets/ConBtn.astro";
     </div>
 
   </div>
-  <div class="w-full flex flex-col mt-[10vh]" id="modal">
+  <div class="w-full flex flex-col mt-[10vh] cursor-pointer" id="modal">
     <div class="w-full">
       <ul>
         <div class="w-full h-1px border-t-2 border-gray-200 border-dotted"></div>
-        <li class="text-2xl text-white flex justify-between items-center w-full">Home
+        <li class="text-2xl text-white flex justify-between items-center w-full" data-target="#home">Home
           <span class="inline-block">
             <img src="/arrow1.svg" class="size-[1.5rem]" alt="-->">
           </span>
         </li>
         <div class="w-full h-1px border-t-2 border-gray-200 border-dotted"></div>
-        <li class="text-2xl text-white flex justify-between items-center w-full">Work
+        <li class="text-2xl text-white flex justify-between items-center w-full" data-target="#work">Work
           <span class="inline-block">
             <img src="/arrow1.svg" class="size-[1.5rem]" alt="-->">
           </span>
         </li>
         <div class="w-full h-1px border-t-2 border-gray-200 border-dotted"></div>
-        <li class="text-2xl text-white flex justify-between items-center w-full">Services
+        <li class="text-2xl text-white flex justify-between items-center w-full" data-target="#services">Services
           <span class="inline-block">
             <img src="/arrow1.svg" class="size-[1.5rem]" alt="-->">
           </span>
         </li>
         <div class="w-full h-1px border-t-2 border-gray-200 border-dotted"></div>
-        <li class="text-2xl text-white flex justify-between items-center w-full">Contact
+        <li class="text-2xl text-white flex justify-between items-center w-full" data-target="#contact">Contact
           <span class="inline-block">
             <img src="/arrow1.svg" class="size-[1.5rem]" alt="-->">
           </span>
@@ -97,7 +97,7 @@ import ConBtn from "./assets/ConBtn.astro";
   }
 </style>
 
-<script>
+<!-- <script>
   const navbar = document.getElementById('navbar');
   const modal = document.getElementById('modal');
   let isModalOpen = false;
@@ -120,5 +120,42 @@ import ConBtn from "./assets/ConBtn.astro";
       }, 500); // Match the duration of the sliding effect
     }
   });
-</script>
+</script> -->
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const navbar = document.getElementById('navbar');
+  const modal = document.getElementById('modal');
+  const menuItems = modal.querySelectorAll('li'); // Select all menu items
+  let isModalOpen = false;
+
+  // Toggle modal visibility and cross animation
+  navbar.addEventListener('click', () => {
+    isModalOpen = !isModalOpen;
+    navbar.classList.toggle('navbar-open');
+    modal.classList.toggle('active', isModalOpen);
+    modal.style.display = isModalOpen ? 'flex' : 'none'; // Show/hide modal
+  });
+
+  // Smooth scroll to sections
+  menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const targetId = item.getAttribute('data-target');
+      const targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+
+        // Close the modal after clicking
+        isModalOpen = false;
+        navbar.classList.remove('navbar-open');
+        modal.classList.remove('active');
+        setTimeout(() => {
+          modal.style.display = 'none';
+        }, 500); // Match the duration of the sliding effect
+      }
+    });
+  });
+});
+
+</script>

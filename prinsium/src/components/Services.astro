@@ -1,3 +1,7 @@
+---
+import { gigData } from "../Projects/Gig";
+---
+
 <div class="flex flex-col">
     <div>
         <div class="overflow-hidden border-gray-200 border-2 py-3">
@@ -24,12 +28,19 @@
 
     <!-- Here are the services -->
 
-    <div class="flex flex-col border-x-2 border-gray-200 gap-4 py-2">
-        <h3>Figma Design</h3>
-        <h3>Design To Code</h3>
-        <h3>Landing Page</h3>
-        <h3>Web Design</h3>
-        <h3>Front End Development</h3>
+    <div class="flex flex-col border-x-2 border-gray-200 py-2 service-gigs">
+        {gigData.map((gigs, index) => (
+            <div key={gigs.id} class="relative group">
+                <h3>{gigs.gig}</h3>
+                {/* <img src={gigs.gigImage} class="group-hover:flex absolute w-[300px] h-[400px] z-20" alt="img" /> */}
+                <div class="absolute -z-10 group-hover:z-30 h-full w-[90vw] flex justify-end items-end hidden group-hover:block">
+            <div class="h-[400px] w-[300px] right-0 top-0 z-50 flex justify-center items-center">
+            <img src={gigs.gigImage} class="-translate-y-1/2 object-contain" alt="img" />
+    </div>
+        </div>
+            </div>
+        ))}
+        
     </div>
 
     <!-- Here are the services -->
@@ -57,3 +68,37 @@
         </div>
     </div>
 </div>
+
+<style>
+.service-gigs h3 {
+    position: relative; /* Position relative for absolute positioning of pseudo-element */
+    overflow: hidden; /* Hide overflow of the pseudo-element */
+    padding: 10px; /* Adjust as needed */
+    margin: 0; /* Remove default margin */
+    transition: color 0.3s ease; /* Transition for text color */
+}
+
+.service-gigs h3::before {
+    content: ''; /* Pseudo-element for the background */
+    position: absolute;
+    top: 50%; /* Start from the center */
+    left: 0;
+    right: 0;
+    height: 100%; /* Full height */
+    background-color: red; /* Background color on hover */
+    transform: translateY(-50%) scaleY(0); /* Center and scale down */
+    transition: transform 0.3s ease; /* Smooth transition for the scale */
+    z-index: -1; /* Place behind the text */
+}
+
+.service-gigs h3:hover::before {
+    transform: translateY(-50%) scaleY(1); /* Expand to full height */
+}
+
+.service-gigs h3:hover {
+    color: black; /* Optional: change text color on hover */
+    z-index: 3; /* Ensure text is on top of the pseudo-element */
+}
+
+
+</style>
