@@ -1,10 +1,12 @@
 ---
+import { urlData } from "../Projects/Url";
 import ConBtn from "./assets/ConBtn.astro";
 ---
 
 <div>
   <div class="flex w-full justify-between items-center flex-col-reverse gap-8 lg:flex-row mt-[10vh] ">
-    <div class="relative flex w-fit h-fit justify-center items-center group md:mt-[10vh] lg:mt-0 lg:-translate-x-12">
+    
+    <div class="relative flex w-fit h-fit justify-center items-center group md:mt-[10vh] lg:mt-0 lg:-translate-x-12" id="scrollToDiv">
       <div
         class="transition-all duration-1000 sticky border-2 border-red-600 group-hover:animate-shrinkToNormal group-hover:border-0 size-[8rem] md:size-[16rem] lg:size-[20vw] rounded-full z-10 arrowbg"
       >
@@ -32,7 +34,9 @@ import ConBtn from "./assets/ConBtn.astro";
 
     <div>
       <h6 class="hidden lg:block">Let's</h6>
-      <ConBtn />
+      <a href={`mailto:${urlData.contact}`}>
+        <ConBtn />
+        </a>
     </div>
   </div>
 
@@ -130,6 +134,8 @@ import ConBtn from "./assets/ConBtn.astro";
     </div>
   </div>
 
+</div>
+
   <style>
     /* .arrowbg {
       filter: contrast(450%) brightness(200%);
@@ -182,4 +188,18 @@ import ConBtn from "./assets/ConBtn.astro";
       transform: translateY(-100%);
     }
   </style>
-</div>
+
+  <script>
+  document.getElementById('scrollToDiv').addEventListener('click', function() {
+        const workSection = document.getElementById('work');
+        if (workSection) {
+            const offset = workSection.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({
+                top: offset,
+                behavior: 'smooth'
+            });
+        } else {
+            console.error('Work section not found');
+        }
+    });
+</script>

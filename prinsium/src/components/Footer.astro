@@ -1,4 +1,5 @@
 ---
+import { urlData } from "../Projects/Url";
 import Btn from "./assets/Btn.astro";
 import ConBtn from "./assets/ConBtn.astro";
 import Logo from "./assets/Logo.astro";
@@ -37,38 +38,38 @@ import Logo from "./assets/Logo.astro";
         </div>
     </div>
             <div>
-                <a href="/">
+                <a href={`mailto:${urlData.contact}`}>
                     <ConBtn />
                     </a>
             </div>
         </div>
 
         <div class="flex w-full flex-row justify-between items-center">
-            <a class="socialbtn" href="/">Instagram</a>
-            <a class="socialbtn" href="/">Twitter</a>
-            <a class="socialbtn" href="/">Behance</a>
-            <a class="socialbtn" href="/">Dribble</a>
-            <a class="socialbtn" href="/">Youtube</a>
+            <a class="socialbtn hover:line-through" href={urlData.instagram} target="_blank" rel="noreferrer">Instagram</a>
+            <a class="socialbtn hover:line-through" href={urlData.twitter} target="_blank" rel="noreferrer">Twitter</a>
+            <a class="socialbtn hover:line-through" href={urlData.github} target="_blank" rel="noreferrer">Github</a>
+            <a class="socialbtn hover:line-through" href={urlData.youtube} target="_blank" rel="noreferrer">Youtube</a>
+            <a class="socialbtn hover:line-through" href={urlData.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
 
         <!-- <div class="flex block sm:hidden flex-col border-2 border-gray-200">
-            <a href="/" class="flex justify-between">
+            <a href={urlData.instagram} target="_blank" rel="noreferrer" class="flex justify-between">
                 <h3>Instagram</h3>
                 <img src="/arrow.svg" class="w-[1.5rem] sm:w-[1.75rem] md:w-[2rem] lg:w-[4vw]" alt="*" />
             </a>
-            <a href="/" class="flex justify-between">
+            <a href={urlData.instagram} target="_blank" rel="noreferrer" class="flex justify-between">
                 <h3>Instagram</h3>
                 <img src="/arrow.svg" class="w-[1.5rem] sm:w-[1.75rem] md:w-[2rem] lg:w-[4vw]" alt="*" />
             </a>
-            <a href="/" class="flex justify-between">
+            <a href={urlData.instagram} target="_blank" rel="noreferrer" class="flex justify-between">
                 <h3>Instagram</h3>
                 <img src="/arrow.svg" class="w-[1.5rem] sm:w-[1.75rem] md:w-[2rem] lg:w-[4vw]" alt="*" />
             </a>
-            <a href="/" class="flex justify-between">
+            <a href={urlData.instagram} target="_blank" rel="noreferrer" class="flex justify-between">
                 <h3>Instagram</h3>
                 <img src="/arrow.svg" class="w-[1.5rem] sm:w-[1.75rem] md:w-[2rem] lg:w-[4vw]" alt="*" />
             </a>
-            <a href="/" class="flex justify-between">
+            <a href={urlData.instagram} target="_blank" rel="noreferrer" class="flex justify-between">
                 <h3>Instagram</h3>
                 <img src="/arrow.svg" class="w-[1.5rem] sm:w-[1.75rem] md:w-[2rem] lg:w-[4vw]" alt="*" />
             </a>
