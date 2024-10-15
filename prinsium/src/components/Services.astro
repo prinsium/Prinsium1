@@ -51,7 +51,7 @@ import { gigData } from "../Projects/Gig";
         <div class="flex flex-col border-x-2 border-gray-200 py-2 service-gigs">
         {gigData.map((gigs, index) => (
             <div key={gigs.id} class="relative group">
-            <h3>{gigs.gig}</h3>
+                <a href={gigs.url} target="_blank" rel="noreferrer"><h3>{gigs.gig}</h3></a>
             <div class="hidden group-hover:z-30 group-hover:block right-[10vw] top-0 -translate-y-1/2 absolute w-96 h-96 bg-red-500">
                 <img src={gigs.gigImage} class="object-contain" alt="img" /></div>
         </div>
